@@ -2,11 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+@layer components {
+  .rounded-small {
+    @apply rounded-[6px];
+  }
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+  .rounded-medium {
+    @apply rounded-[10px];
+  }
+
+  .rounded-large {
+    @apply rounded-[14px];
   }
 }
