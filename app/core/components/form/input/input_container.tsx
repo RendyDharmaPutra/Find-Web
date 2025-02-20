@@ -6,7 +6,7 @@ type InputContainerProps = {
 
 export const InputContainer: React.FC<InputContainerProps> = (props) => {
   return (
-    <div className="flex flex-col ">
+    <div className="relative flex flex-col ">
       <label
         htmlFor={`#${props.name}`}
         className="mb-1.5 font-medium text-sm text-primaryTxt"
