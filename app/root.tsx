@@ -9,6 +9,7 @@ import type { LinksFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
 
 import "./tailwind.css";
+import { Presence } from "./core/components/motion/presence";
 
 export const meta: MetaFunction = () => {
   return [
@@ -40,7 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <Presence>{children}</Presence>
         <ScrollRestoration />
         <Scripts />
       </body>
