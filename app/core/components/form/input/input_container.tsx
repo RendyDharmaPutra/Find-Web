@@ -1,6 +1,7 @@
 type InputContainerProps = {
   name: string;
   label: string;
+  error: string[] | null;
   children: React.ReactNode;
 };
 
@@ -14,7 +15,7 @@ export const InputContainer: React.FC<InputContainerProps> = (props) => {
         {props.label}
       </label>
       {props.children}
-      <p className="mt-1 text-xs text-danger">Error Message</p>
+      {props.error && <p className="mt-1 text-xs text-danger">{props.error}</p>}
     </div>
   );
 };

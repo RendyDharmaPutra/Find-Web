@@ -3,13 +3,14 @@ import { InputContainer } from "./input_container";
 type TextBoxProps = {
   name: string;
   label: string;
+  error: string[] | null;
   type: React.HTMLInputTypeAttribute;
   children?: React.ReactNode;
 };
 
 export const TextBox: React.FC<TextBoxProps> = (props) => {
   return (
-    <InputContainer label={props.label} name={props.name}>
+    <InputContainer label={props.label} name={props.name} error={props.error}>
       <input
         id={`#${props.name}`}
         name={props.name}

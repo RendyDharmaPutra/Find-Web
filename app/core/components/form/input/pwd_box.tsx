@@ -4,6 +4,7 @@ import { TextBox } from "./text_box";
 type PwdBoxProps = {
   name: string;
   label: string;
+  error: string[] | undefined;
 };
 
 export const PwdBox: React.FC<PwdBoxProps> = (props) => {
@@ -18,6 +19,7 @@ export const PwdBox: React.FC<PwdBoxProps> = (props) => {
       label={props.label}
       name={props.name}
       type={visible ? "text" : "password"}
+      error={props.error || null}
     >
       <button
         type="button"
