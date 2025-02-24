@@ -1,10 +1,14 @@
 import { ApiEnv } from "~/core/utils/get_env";
-import { AuthFormType } from "../type/auth_form_type";
+import { LoginFormType, RegisterFormType } from "../type/auth_form_type";
+import {
+  FailedPostRegisterType,
+  SuccessPostRegisterType,
+} from "../type/api/post_register_type";
 
 export const postAuth = async (
   route: "register" | "login",
-  data: AuthFormType
-) => {
+  data: LoginFormType | RegisterFormType
+): Promise<SuccessPostRegisterType | FailedPostRegisterType> => {
   const api_url = ApiEnv();
 
   try {
@@ -16,15 +20,17 @@ export const postAuth = async (
       body: JSON.stringify(data),
     });
 
-    const response = await rawResponse.json();
-
-    console.log(response);
+    const response: SuccessPostRegisterType | FailedPostRegisterType =
+      await rawResponse.json();
 
     return response;
   } catch (error) {
-    const errorMessage = `error : ${error}`;
+    const errorMessage = `${error}`;
 
-    console.error(`error : ${errorMessage}`);
-    throw errorMessage;
+    return {
+      status: "Failed",
+      message: "Terjadi Kesalahan",
+      error: errorMessage,
+    };
   }
 };
