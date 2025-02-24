@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react";
 
 type AuthLinkProps = {
+  route: "login" | "register";
   question: string;
   text: string;
 };
@@ -11,7 +12,7 @@ export const AuthLink: React.FC<AuthLinkProps> = (props) => {
       <h6 className="font-medium text-sm">
         {props.question}?{" "}
         <Link
-          to={`auth_route`}
+          to={`/auth/${props.route}`}
           className="text-primary hover:text-secondary duration-300"
         >
           {props.text}
