@@ -1,16 +1,22 @@
+import { Sonner } from "~/core/components/float/sonner";
 import { AuthContent } from "../container/auth_content";
+import { AuthActionType } from "../../type/action/auth_action_type";
 
-type AuthPageProps = {
+type AuthPageProps<T extends AuthActionType> = {
   title: string;
   route: "login" | "register";
   question: string;
   text: string;
+  response: T | undefined;
   children: React.ReactNode;
 };
 
-export const AuthPage: React.FC<AuthPageProps> = (props) => {
+export const AuthPage = <T extends AuthActionType>(props: AuthPageProps<T>) => {
+  const response = props.response;
+
   return (
-    <div className="flex justify-center items-center w-full h-screen bg-tertiaryBG">
+    <div className="relative flex justify-center items-center w-full h-screen bg-tertiaryBG">
+      {response && <Sonner response={response} />}
       <AuthContent
         title={props.title}
         route={props.route}

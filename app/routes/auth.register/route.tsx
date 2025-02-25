@@ -10,7 +10,9 @@ import { postAuth } from "~/features/auth/utils/post_auth";
 import { RegisterSchema } from "~/features/auth/utils/validation/register_validation";
 
 export default function Register() {
-  const response = useActionData<typeof action>()!;
+  const response = useActionData<typeof action>();
+
+  console.log(response);
 
   const validateError = response?.error?.validation;
 
@@ -20,6 +22,7 @@ export default function Register() {
       route="login"
       question="Sudah punya akun"
       text="Login di sini"
+      response={response}
     >
       <RegisterForm errors={validateError} />
     </AuthPage>
