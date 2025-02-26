@@ -1,4 +1,4 @@
-import { Sonner } from "~/core/components/float/sonner";
+import { AuthSonner } from "~/core/components/float/sonner/auth_sonner";
 import { AuthContent } from "../container/auth_content";
 import { AuthActionType } from "../../type/action/auth_action_type";
 
@@ -16,7 +16,7 @@ export const AuthPage = <T extends AuthActionType>(props: AuthPageProps<T>) => {
 
   return (
     <div className="relative flex justify-center items-center w-full h-screen bg-tertiaryBG">
-      {response && <Sonner response={response} />}
+      <AuthSonner response={response} />
       <AuthContent
         title={props.title}
         route={props.route}
