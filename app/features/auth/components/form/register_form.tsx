@@ -3,13 +3,12 @@ import { AuthForm } from "../container/auth_form";
 import { PwdBox } from "~/core/components/form/input/pwd_box";
 
 type RegisterFormProps = {
-  errors:
+  errors?:
     | {
         Fullname?: string[] | undefined;
         Username?: string[] | undefined;
         Password?: string[] | undefined;
       }
-    | null
     | undefined;
 };
 

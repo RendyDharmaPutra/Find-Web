@@ -1,7 +1,7 @@
 import { ActionFunctionArgs } from "@remix-run/node";
 import { useActionData } from "@remix-run/react";
 import { AuthPage } from "~/features/auth/components/layout/auth_page";
-import { RegisterForm } from "~/features/auth/components/register/register_form";
+import { RegisterForm } from "~/features/auth/components/form/register_form";
 import { getRegisterData } from "~/features/auth/hooks/get_register_data";
 import { AuthActionType } from "~/features/auth/type/action/auth_action_type";
 import { RegisterValidationType } from "~/features/auth/type/action/form_validation_type";
@@ -11,8 +11,6 @@ import { RegisterSchema } from "~/features/auth/utils/validation/register_valida
 
 export default function Register() {
   const response = useActionData<typeof action>();
-
-  console.log(response);
 
   const validateError = response?.error?.validation;
 
