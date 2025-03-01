@@ -1,5 +1,5 @@
-import { ActionFunctionArgs } from "@remix-run/node";
-import { useActionData } from "@remix-run/react";
+import { ActionFunctionArgs, TypedResponse } from "@remix-run/node";
+import { redirect, useActionData } from "@remix-run/react";
 import { AuthPage } from "~/features/auth/components/layout/auth_page";
 import { LoginForm } from "~/features/auth/components/form/login_form";
 import { getLoginData } from "~/features/auth/hooks/get_login_data";
@@ -7,6 +7,7 @@ import { AuthActionType } from "~/features/auth/type/action/auth_action_type";
 import { LoginValidationType } from "~/features/auth/type/action/form_validation_type";
 import { isFailedPostRegister } from "~/features/auth/type/api/post_register_typeguard";
 import { postAuth } from "~/features/auth/utils/post_auth";
+import { authCookies } from "~/features/auth/utils/auth_cookies";
 
 export default function Login() {
   const response = useActionData<typeof action>();
@@ -28,7 +29,9 @@ export default function Login() {
 
 export async function action({
   request,
-}: ActionFunctionArgs): Promise<AuthActionType<LoginValidationType>> {
+}: ActionFunctionArgs): Promise<
+  AuthActionType<LoginValidationType> | TypedResponse<never>
+> {
   const body = await request.formData();
 
   const data = getLoginData(body);
@@ -48,7 +51,7 @@ export async function action({
           validation: {
             Username: [response.error],
           },
-          message: "Terjadi Kesalahan pada data yang diberikan",
+          message: "Akun tidak valid",
         },
       };
     } else if (response.error.includes("password")) {
@@ -58,7 +61,7 @@ export async function action({
           validation: {
             Password: [response.error],
           },
-          message: "Terjadi Kesalahan pada data yang diberikan",
+          message: "Akun tidak valid",
         },
       };
     }
@@ -71,8 +74,9 @@ export async function action({
     };
   }
 
-  return {
-    status: response.status,
-    message: response.message,
-  };
+  return redirect("/", {
+    headers: {
+      "Set-Cookie": await authCookies.serialize(response.data?.token),
+    },
+  });
 }

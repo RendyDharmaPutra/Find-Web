@@ -5,6 +5,9 @@ type PostRegisterType = {
 
 export type SuccessPostRegisterType = PostRegisterType & {
   status: "Success";
+  data?: {
+    token: string;
+  };
 };
 
 export type FailedPostRegisterType = PostRegisterType & {
