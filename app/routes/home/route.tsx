@@ -40,7 +40,7 @@ export default function Index() {
     <>
       {isDesktop ? (
         <main className="flex flex-row w-full h-screen bg-red-500">
-          <aside className="w-[360px] h-full bg-primaryBG">
+          <aside className="w-[480px] h-full bg-primaryBG">
             <HomeLayout />
           </aside>
           <section className="flex-1 h-full bg-blue-500">

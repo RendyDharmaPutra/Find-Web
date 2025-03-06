@@ -1,4 +1,4 @@
-import { PersonCard } from "../../card/person_card";
+import { PersonCard } from "../card/person_card";
 
 type HomePersonProps = {};
 

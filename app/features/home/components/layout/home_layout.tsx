@@ -1,5 +1,5 @@
 import { HomeHeader } from "../container/header/home_header";
-import { HomePerson } from "../container/person/home_person";
+import { HomePerson } from "../container/home_person";
 import { HomeProfile } from "../container/home_profile";
 
 type HomeLayoutProps = {};
