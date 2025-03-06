@@ -8,7 +8,7 @@ export const ActionTrailing: React.FC<ActionTrailingProps> = (props) => {
     <div className="flex flex-row items-center gap-1 ">
       <Link
         to={"/home/add"}
-        className="rounded-full hover:bg-tertiaryBG duration-300"
+        className="rounded-full hover:bg-tertiaryBG  active:bg-tertiaryBG duration-300"
       >
         <Plus className="w-6 h-6 text-secondaryTxt" />
       </Link>

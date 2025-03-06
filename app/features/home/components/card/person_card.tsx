@@ -13,7 +13,7 @@ export const PersonCard: React.FC<PersonCardProps> = (props) => {
       to={"/home/2"}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className="flex flex-row justify-between items-center w-full h-fit max-h-22 border-b border-darkPrimaryBG/8 bg-primaryBG hover:bg-secondaryBG duration-300"
+      className="flex flex-row justify-between items-center w-full h-fit max-h-22 border-b border-darkPrimaryBG/8 bg-primaryBG hover:bg-secondaryBG active:bg-tertiaryBG duration-300"
     >
       <section className="px-4 py-5 flex flex-col gap-1 w-full ">
         <p className="font-semibold text-base text-primaryTxt ">Nama Orang</p>
