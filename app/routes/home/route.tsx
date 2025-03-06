@@ -40,7 +40,7 @@ export default function Index() {
     <>
       {isDesktop ? (
         <main className="flex flex-row w-full h-screen bg-red-500">
-          <aside className="w-[360px] h-full bg-green-500">
+          <aside className="w-[360px] h-full bg-primaryBG">
             <HomeLayout />
           </aside>
           <section className="flex-1 h-full bg-blue-500">
@@ -49,7 +49,7 @@ export default function Index() {
         </main>
       ) : location.pathname === "/home" ? (
         <main className="w-full h-screen bg-red-500">
-          <aside className="w-full h-full bg-green-500">
+          <aside className="w-full h-full bg-primaryBG">
             <HomeLayout />
           </aside>
         </main>
