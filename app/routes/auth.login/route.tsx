@@ -7,7 +7,7 @@ import { AuthActionType } from "~/features/auth/type/action/auth_action_type";
 import { LoginValidationType } from "~/features/auth/type/action/form_validation_type";
 import { isFailedPostRegister } from "~/features/auth/type/api/post_register_typeguard";
 import { postAuth } from "~/features/auth/utils/post_auth";
-import { authCookies } from "~/features/auth/utils/auth_cookies";
+import { authCookies } from "~/core/utils/cookie/auth_cookies";
 
 export default function Login() {
   const response = useActionData<typeof action>();
