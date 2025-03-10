@@ -8,7 +8,7 @@ import { ProfileType } from "~/features/home/type/profile_type";
 import { getHome } from "~/features/home/utils/get_home";
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  authenticated(request);
+  await authenticated(request);
 
   const personResponse = await getHome<{ persons: PersonType[] }>(
     request,
