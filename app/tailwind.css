@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  .center {
+    @apply justify-center items-center;
+  }
+
   .rounded-small {
     @apply rounded-[6px];
   }
