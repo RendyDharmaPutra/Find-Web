@@ -1,11 +1,17 @@
 import { Search } from "lucide-react";
+import { useEffect } from "react";
 
-type SearchBarProps = {};
+type SearchBarProps = {
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+};
 
 export const SearchBar: React.FC<SearchBarProps> = (props) => {
   return (
     <>
       <input
+        defaultValue={props.query}
+        onChange={(e) => props.setQuery(e.target.value)}
         type="text"
         name="search"
         id="search"

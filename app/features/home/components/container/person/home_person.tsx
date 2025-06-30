@@ -5,6 +5,7 @@ import { PersonNotFound } from "./person_not_found";
 
 type HomePersonProps = {
   person: ApiResponseType<{ person: PersonType[] }>;
+  query: string;
 };
 
 export const HomePerson: React.FC<HomePersonProps> = (props) => {
@@ -12,7 +13,7 @@ export const HomePerson: React.FC<HomePersonProps> = (props) => {
   return (
     <section className="flex-1 w-full overflow-y-hidden">
       {person.status === "Success" ? (
-        <PersonList person={person.data!.person} />
+        <PersonList person={person.data!.person} query={props.query} />
       ) : (
         <PersonNotFound message={person.message} description={person.error!} />
       )}
